@@ -7,7 +7,7 @@ echo Removing existing image...
 for /f "tokens=*" %%i in ('docker ps -a -f "ancestor=my-gnucobol-image" -q') do docker container rm %%i -f
 
 echo removing any dangling images
-docker images -f "dangling=true" -q | xargs docker rmi -f
+for /f "tokens=*" %%i in ('docker images -f "dangling=true" -q') do docker rmi -f %%i
 
 echo Building Docker image...
 docker build -t my-gnucobol-image .

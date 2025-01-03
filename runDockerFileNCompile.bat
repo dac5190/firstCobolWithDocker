@@ -18,4 +18,8 @@ timeout /T 2 /NOBREAK >nul
 echo Running container and compiling/executing COBOL program...
 docker run -it my-gnucobol-image /bin/bash -c "cobc -x helloworld.cobol && ./helloworld"
 
+#if you rather mount a directory to work with docker, instead of copying the file over to the volume
+#echo Running container with volume mount...
+#docker run -it -v "C:\cobolLearning\docker\justFollowingWithBook:/app" my-gnucobol-image /bin/bash -c "cobc -x fileCreate.cobol && ./fileCreate"
+
 echo Done from bat!
